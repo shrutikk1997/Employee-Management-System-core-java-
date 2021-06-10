@@ -1,0 +1,76 @@
+package db;
+
+import javax.swing.JOptionPane;
+
+import module.User;
+import view.LoginFrame;
+
+public class DAOuser
+{
+  static User arruser[];
+  static int count ;
+  
+    static
+    {
+    	arruser=new User[3];
+    	count=0;
+    }
+
+	public boolean insert(User u1) {
+		// TODO Auto-generated method stub
+	try {
+		arruser[count]=u1;
+		count++;
+		for(int i=0;i<arruser.length;i++)
+			System.out.println(arruser[i]);
+		return true;
+	}catch (ArrayIndexOutOfBoundsException e) {
+		// TODO: handle exception
+	System.out.println("Regisration Full");
+		return false;
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+		return false;
+	}
+
+	}
+
+	public User validateuser(User u1) {
+		// TODO Auto-generated method stub
+	
+		int flag=0;
+		for(int i=0;i<arruser.length;i++)
+		{
+		if(u1.getUsername().contentEquals(arruser[i].getUsername())&&u1.getPassword().contentEquals(arruser[i].getPassword()))
+		{
+			System.out.println("equal");
+			u1.setCity(arruser[i].getCity());
+			flag=1;
+			break;
+		}
+		}
+		if(flag==1)
+		{
+			return u1;
+		}
+		else
+		{
+			return null;
+		}
+
+	}
+	public boolean checklength() {
+		// TODO Auto-generated method stub
+		if(arruser.length==0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	
+}

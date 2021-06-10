@@ -1,0 +1,109 @@
+package db;
+import java.sql.*;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
+
+import module.User;
+import view.LoginFrame;
+import java.sql.*;
+public class DAOuser
+{
+	static Class c1;
+	static String url;
+	static Connection con;
+	static Statement s1;
+   
+  
+  
+    static
+    {
+    	try
+    	{
+    	c1=Class.forName("com.mysql.jdbc.Driver");
+   	 url="jdbc:mysql://localhost:3306/user";
+			con=(Connection) DriverManager.getConnection(url,"root","9922980310");
+			System.out.println("connection successful");
+			s1=(Statement) con.createStatement();
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+   
+    }
+
+	public boolean insert(User u1) {
+		// TODO Auto-generated method stub
+	try {
+		String name=u1.getUsername();
+		String pass=u1.getPassword();
+		String city=u1.getCity();
+		PreparedStatement st=con.prepareStatement("insert into user values(?,?,?)");
+	    
+	    
+	//s1.execute("insert into user values(name,pass,city);");
+	System.out.println("row added");
+		//for(int i=0;i<arruser.size();i++)
+			//System.out.println();
+		return true;
+	}catch (ArrayIndexOutOfBoundsException e) {
+		// TODO: handle exception
+	System.out.println("Regisration Full");
+		return false;
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+		return false;
+	}
+
+	}
+}
+/*
+	public User validateuser(User u1) {
+		// TODO Auto-generated method stub
+	
+		int flag=0;
+		for(int i=0;i<arruser.size();i++)
+		{
+			User a1=(User)arruser.get(i);
+		if(u1.getUsername().contentEquals(a1.getUsername())&&u1.getPassword().contentEquals(a1.getPassword()))
+		{
+			System.out.println("equal");
+			u1.setCity(a1.getCity());
+			flag=1;
+			break;
+		}
+		}
+		if(flag==1)
+		{
+			return u1;
+		}
+		else
+		{
+			return null;
+		}
+
+	}
+	public boolean checklength() {
+		// TODO Auto-generated method stub
+		if(arruser.size()==0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	
+}
+*/

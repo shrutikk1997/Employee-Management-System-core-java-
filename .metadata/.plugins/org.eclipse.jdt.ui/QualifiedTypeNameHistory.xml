@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="db.DAOuser"/>
+<fullyQualifiedTypeName name="module.User"/>
+<fullyQualifiedTypeName name="java.awt.FlowLayout"/>
+<fullyQualifiedTypeName name="control.MyWindowListener"/>
+<fullyQualifiedTypeName name="view.LoginFrame"/>
+<fullyQualifiedTypeName name="view.DeleteEmployee"/>
+<fullyQualifiedTypeName name="java.awt.Label"/>
+<fullyQualifiedTypeName name="java.awt.TextField"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.awt.Button"/>
+<fullyQualifiedTypeName name="java.awt.Frame"/>
+<fullyQualifiedTypeName name="db.DAOemployee"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="module.NameSort"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="module.IdSort"/>
+<fullyQualifiedTypeName name="module.SalesManger"/>
+<fullyQualifiedTypeName name="view.SalesmangerFrame"/>
+<fullyQualifiedTypeName name="module.Admin"/>
+<fullyQualifiedTypeName name="view.AdminFrame"/>
+<fullyQualifiedTypeName name="module.Hr"/>
+<fullyQualifiedTypeName name="module.Employee"/>
+<fullyQualifiedTypeName name="view.SalesmangerEditFrame"/>
+<fullyQualifiedTypeName name="view.AdminEditFrame"/>
+<fullyQualifiedTypeName name="view.HrEditFrame"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,178 @@
+package db;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+import javax.swing.JOptionPane;
+
+import module.Admin;
+import module.Employee;
+import module.Hr;
+import module.IdSort;
+import module.ExtraPaymentSort;
+import module.NameSort;
+import module.SalesManger;
+import view.AdminEditFrame;
+import view.DeleteEmployee;
+import view.HrEditFrame;
+import view.SalesmangerEditFrame;
+
+
+public class DAOemployee
+{
+	static ArrayList arremployee;
+	
+
+	static
+	{
+		arremployee=new ArrayList();
+	
+	}
+
+	public boolean insert(Employee u1)
+	{
+	
+		try {
+			System.out.println(u1);
+			arremployee.add(u1);		
+			
+            return true;
+		}catch (ArrayIndexOutOfBoundsException e) {
+			// TODO: handle exception
+		System.out.println("Regisration Full");
+		return false;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		return false;
+		}
+
+		
+
+	}
+
+	public boolean delete(int a) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<arremployee.size();i++)
+		{
+			Employee emp=(Employee)arremployee.get(i);
+			if(emp.getId()==a)
+			{
+				arremployee.remove(i);
+				System.out.println("element deleted successfully");
+				return true;
+			}
+			else
+			{
+	           
+				System.out.println("element not found");
+				return false;
+			}
+		}
+		return false;
+	}
+
+		public Employee search(int id) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<arremployee.size();i++)
+		{
+			Employee e1=(Employee)arremployee.get(i);
+			if(e1.getId()==id)
+			{
+				System.out.println("element found");
+				return e1;
+				  
+		
+			}
+			
+		}
+		return null;
+		
+
+	}
+
+		public int calSal(int id) {
+			// TODO Auto-generated method stub
+			for(int i=0;i<arremployee.size();i++)
+			{
+				Employee e1=(Employee)arremployee.get(i);
+				if(e1.getId()==id)
+				{
+					System.out.println("id found");
+	              return e1.calSal();
+	             
+				}
+				
+			}
+			
+			return 0;
+		}
+
+		public void sortById() {
+			// TODO Auto-generated method stub
+	      IdSort i1=new IdSort();
+			Collections.sort(arremployee,i1);
+			System.out.println("sorting is");
+			System.out.println(arremployee);
+		}
+
+		public void sortByName() {
+			// TODO Auto-generated method stub
+			NameSort n1=new NameSort();
+			Collections.sort(arremployee,n1);
+			System.out.println("sorting is");
+			System.out.println(arremployee);
+	
+		}
+
+		public void sortByExtraPayment() {
+			// TODO Auto-generated method stub
+			ExtraPaymentSort i1=new ExtraPaymentSort();
+			Collections.sort(arremployee,i1);
+			System.out.println("sorting is");
+			System.out.println(arremployee);
+		}
+
+			public boolean edit1(int id) {
+			// TODO Auto-generated method stub
+
+				Employee es=null;
+				int flag=0;
+			for(int i=0;i<arremployee.size();i++)
+			{
+				Employee e1=(Employee)arremployee.get(i);
+				if(e1.getId()==id)
+				{
+					es=e1;
+					arremployee.remove(i);
+					
+					flag=1;
+					break;
+					
+				}
+			}
+			if(es instanceof SalesManger)
+			{
+			SalesmangerEditFrame s1=new SalesmangerEditFrame(es);
+			}
+			if(es instanceof Admin)
+			{
+				
+				AdminEditFrame s2=new AdminEditFrame(es);
+			}
+			if(es instanceof Hr)
+			{
+				
+				HrEditFrame s3=new HrEditFrame(es);
+			}
+	if(flag==0)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+			
+			}
+		}

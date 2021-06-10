@@ -1,0 +1,87 @@
+package db;
+
+import javax.swing.JOptionPane;
+
+import module.Admin;
+import module.Employee;
+import module.Hr;
+import module.SalesManger;
+import view.DeleteEmployee;
+
+
+public class DAOemployee
+{
+	static Employee arremployee[];
+	static int count ;
+
+	static
+	{
+		arremployee=new Employee[3];
+		count=0;
+	}
+
+	public boolean insert(Employee u1)
+	{
+	
+		try {
+			System.out.println(u1);
+			arremployee[count]=u1;
+			System.out.println(	arremployee[count]);
+			count++;
+			
+		
+			
+            return true;
+		}catch (ArrayIndexOutOfBoundsException e) {
+			// TODO: handle exception
+		System.out.println("Regisration Full");
+		return false;
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		return false;
+		}
+
+		
+
+	}
+
+	public void delete(int a,DeleteEmployee e1) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<arremployee.length;i++)
+		{
+			if(arremployee[i].getId()==a)
+			{
+				arremployee[i]=null;
+				System.out.println("element deleted successfully");
+			}
+			else
+			{
+				JOptionPane.showMessageDialog(e1, "element not found");
+				System.out.println("element not found");
+			}
+		}
+	}
+
+		public Employee search(int id) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<arremployee.length;i++)
+		{
+			if(arremployee[i].getId()==id)
+			{
+				System.out.println("element found");
+				return arremployee[i];
+				  
+		
+			}
+			
+		}
+		return null;
+		
+
+	}
+	}
+
+
+
+
